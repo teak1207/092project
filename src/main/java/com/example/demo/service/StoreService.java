@@ -22,18 +22,22 @@ public class StoreService {
     private final StoreModel storeModel;
 
     public List<StoreModel> getStores() {
+
         return repository.findAll();
     }
 
     public StoreModel getStore(Long id) {
+
         return repository.findById(id).orElseThrow();
     }
 
     public StoreModel getStore(String name) {
+
         return repository.findByName(name).orElseThrow();
     }
 
     public StoreModel getStore(Long id, String name) {
+
         return repository.findByIdAndName(id, name).orElseThrow();
     }
 
@@ -48,12 +52,17 @@ public class StoreService {
 
     }
 
-    public List<MenuModel> getStoreInfo(Long storeId){
+    public List<MenuModel> getStoreInfo(Long storeId) {
 
-            repository.findStoreById(storeId);                                // 매장 정보를 가지고 있음.
-           storeModel.setMenus(menuRepository.findMenuById(storeId));         // 메뉴를 리스트로 갖고 있음
+        repository.findStoreById(storeId);     // 매장 정보를 가지고 있음.
+        // select * from store  where id = Id
 
-    return null;
+
+        storeModel.setMenus(menuRepository.findMenuById(storeId));  // 메뉴를 리스트로 갖고 있음
+        // select * from menu  where id = storeId
+
+
+        return menuRepository.findMenuById(storeId);
     }
 
 }
