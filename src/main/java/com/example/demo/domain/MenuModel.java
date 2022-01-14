@@ -4,11 +4,10 @@ package com.example.demo.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "MENU")
 @Getter
@@ -30,4 +29,8 @@ public class MenuModel {
     @Column(name = "price")
     private String price;     // 19,000원
 
+
+//    @ManyToOne
+//    @JoinColumn(name = "id")
+//    private StoreModel store;
 }

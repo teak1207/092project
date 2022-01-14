@@ -28,10 +28,7 @@ public class StoreController {
 
     @GetMapping("/detail/{storeId}")
     public ResponseEntity<StoreModel> getStoreInfo(@PathVariable Long storeId) {
-
-
-
-        return null;
+        return ResponseEntity.ok(service.getStoreInfo(storeId));
     }
 
 

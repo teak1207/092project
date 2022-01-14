@@ -19,25 +19,21 @@ public class StoreService {
     private final StoreRepository repository;
     private final KeywordMappingRepository keywordMappingRepository;
     private final MenuRepository menuRepository;
-    private final StoreModel storeModel;
+
 
     public List<StoreModel> getStores() {
-
         return repository.findAll();
     }
 
     public StoreModel getStore(Long id) {
-
         return repository.findById(id).orElseThrow();
     }
 
     public StoreModel getStore(String name) {
-
         return repository.findByName(name).orElseThrow();
     }
 
     public StoreModel getStore(Long id, String name) {
-
         return repository.findByIdAndName(id, name).orElseThrow();
     }
 
@@ -52,17 +48,19 @@ public class StoreService {
 
     }
 
-    public List<MenuModel> getStoreInfo(Long storeId) {
+    public StoreModel getStoreInfo(Long storeId) {
 
-        repository.findStoreById(storeId);     // 매장 정보를 가지고 있음.
-        // select * from store  where id = Id
+        // 매장 정보를 가지고 와서 storeInfos에 넣어둠
+        StoreModel storeInfos =  repository.findStoreById(storeId);
 
+        /*
+         storeInfos이 갖고 있는 List<MenuModel> menus를
+         menuRepository.findMenuById(storeId) 초기화
+         menus가 메뉴정보를 갖게됨
+         */
+        storeInfos.setMenus(menuRepository.findMenuById(storeId));
 
-        storeModel.setMenus(menuRepository.findMenuById(storeId));  // 메뉴를 리스트로 갖고 있음
-        // select * from menu  where id = storeId
-
-
-        return menuRepository.findMenuById(storeId);
+        return storeInfos;
     }
 
 }
