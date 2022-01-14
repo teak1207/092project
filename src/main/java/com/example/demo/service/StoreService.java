@@ -58,8 +58,9 @@ public class StoreService {
          menuRepository.findMenuById(storeId) 초기화
          menus가 메뉴정보를 갖게됨
          */
-        storeInfos.setMenus(menuRepository.findMenuById(storeId));
-
+        storeInfos.setMenus(menuRepository.findMenuByStoreId(storeId));
+        //storeInfos.setMenus(menuRepository.findAll());
+        // 이게 문젠가?--> 이거 문젠듯
         return storeInfos;
     }
 

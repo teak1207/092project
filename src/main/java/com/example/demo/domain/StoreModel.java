@@ -41,7 +41,7 @@ public class StoreModel {
     private String time;
 
     @Setter
-    @OneToMany(targetEntity=MenuModel.class, mappedBy="storeId", fetch=FetchType.EAGER)
+    @OneToMany(targetEntity=MenuModel.class, mappedBy="id", fetch=FetchType.EAGER)
     private List<MenuModel> menus;
 
 }

@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface MenuRepository extends JpaRepository <MenuModel,Long> {
 
-    List<MenuModel> findMenuById(Long id);   // 아이디로 매장정보 가져오기
+    List<MenuModel> findMenuByStoreId(Long id);   // 아이디로 매장정보 가져오기
 }
