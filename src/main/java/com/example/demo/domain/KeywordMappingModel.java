@@ -27,7 +27,7 @@ public class KeywordMappingModel {
     @Column(name = "keyword_id")
     private Long keywordId;
 
-
+//    private Long keywordCount;
 
     // 키워드를 눌렀을떄 해당 키워드의 상호명과 이미지를 리스트를 가져와야한다.
 
