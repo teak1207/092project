@@ -17,6 +17,7 @@ public class StoreModel {
 
     @Id
     @Column(name = "id")
+//   @SequenceGenerator()
     private Long id;
 
     @Column(name = "name")
