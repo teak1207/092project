@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.domain.StoreModel;
 import com.example.demo.service.StoreService;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.Store;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,9 +27,17 @@ public class StoreController {
         return ResponseEntity.ok(service.getStores(keywordId));
     }
 
+
     @GetMapping("/detail/{storeId}")
     public ResponseEntity<StoreModel> getStoreInfo(@PathVariable Long storeId) {
         return ResponseEntity.ok(service.getStoreInfo(storeId));
+    }
+
+    //localhost/store/{store_id}/recommend
+    @GetMapping("/recommend/{keywordId}")
+    public ResponseEntity<List<StoreModel>> getRecommendStores(@PathVariable Long keywordId) {
+
+        return ResponseEntity.ok(service.getRecommendStores(keywordId));
     }
 
 

@@ -50,6 +50,9 @@ public class StoreModel {
     @OneToMany(targetEntity = MenuModel.class, mappedBy = "id", fetch = FetchType.EAGER)
     private List<MenuModel> menus;
 
+
+
+
     public StoreModel(String name, String thumbnail, String tel, String address, String rating, String time) {
         this.name = name;
         this.thumbnail = thumbnail;
